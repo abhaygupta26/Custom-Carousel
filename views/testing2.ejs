@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/carousel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <meta name="theme-color" content="#7952b3">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-12" style="border: 1px solid black;">
+                <h1 class="text-center navbar-brand">Carousel</h1>
+            </div>
+            <div class="col-sm-2" style="border:1px solid black;height: 610px;">
+                <div class="col-sm-12" style="border: 1px solid black;height: 250px;margin-top: 20px;">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle mx-4 mt-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categories
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="overflow-y:scroll;position:relative;height: 190px;">
+                            <%  categoriesData.forEach(function(categoryData){   %>
+                                <li><a href="/<%= categoryData.title %>/<%= categoryData.id %>" class="dropdown-item">    
+                                        <%= categoryData.title %>    
+                                </a></li>
+                            <%  }); %>
+                        </ul>
+                      </div>
+                    
+                </div>
+                <section id="imageDiv">
+                    <div class="col-sm-12 text-center" style="border: 1px solid black;height: 310px;margin-top: 20px;">
+                        <h5 style="line-height: normal;">Files</h5>
+                        <div class="list-group list-group-flush border-bottom overflow-auto galleryDiv" style="overflow-y:scroll;position:relative;height: 275px;"ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <span style="border: 1px solid black  ">Drop Here Please</span>
+                            <%  photosData.forEach((photoData)=>{   %>
+                                <!-- <a href="<%= photoData.urls.thumb %>" class="fill list-group-item list-group-item-action py-3 lh-tight" style="margin-bottom: 0%;" aria-current="true" draggable="true" ondragstart="drag(event)">
+                                        <%= photoData.id %>.jpg     
+                                </a> -->
+                                <img id="<%= photoData.id %>" class="photo mt-2" ondragstart="drag(event)" style="vertical-align: baseline;" src="<%= photoData.urls.thumb %>" height="159px" width="170px" alt="<%= photoData.id %>.jpg">
+                                
+
+                            <%  })  %>
+                        </div>
+                    </div>
+                </section>
+                
+
+            </div>
+            <div class="col-sm-10" style="border: 1px solid black;height: 610px;">
+
+                <div class="col-sm-12" style="border: 1px solid black;height: 380px;margin-top: 10px;">
+                    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="" class=" sliderImg" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg2" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg3" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg4" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg5" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg6" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg7" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="" class=" sliderImg8" style="height: 375px; width: 60%; margin: 0 20%;" alt="...">
+                          </div>
+                        </div>
+                        <button style="margin-left: 15%;" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button style="margin-right: 15%;" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    <!-- <div id="slider" style="width:70%;height: 350px;margin: 1% 15%;position: relative;border: 2px solid black;">
+                        <div id="box">
+                            <img class="sliderImg" src="" style="width:100%" height="345px" alt="">
+                        </div>
+                        <button class="carousel-control-prev" type="button">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                          </button>
+                          <button class="carousel-control-next" type="button"">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                          </button>
+                    </div> -->
+                </div>
+
+                <div class="col-sm-12" style="border: 1px solid black;height: 219px;">
+                    <div id="container" style="position: relative;height: 215px;width: 99%;margin: 2px auto;white-space: nowrap;overflow-x: auto;overflow-y: hidden;">
+                        <div id="div1" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div2" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div3" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div4" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div5" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div6" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div7" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div8" class="drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <!-- <div class="row mx-1" style="white-space: nowrap;">
+                        <div id="div1" class="col-sm-2 drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div2" class="col-sm-2 drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div3" class="col-sm-2 drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div4" class="col-sm-2 drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div id="div5" class="col-sm-2 drop-zone m-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>   -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+            }
+
+            function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                
+            ev.preventDefault();
+            var arr = [];
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+            console.log("golu"+Math.random());
+                silderImage = document.querySelector("#div1").childNodes[0].src;
+                document.querySelector(".sliderImg").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div2").childNodes[0].src;
+                document.querySelector(".sliderImg2").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div3").childNodes[0].src;
+                document.querySelector(".sliderImg3").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div4").childNodes[0].src;
+                document.querySelector(".sliderImg4").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div5").childNodes[0].src;
+                document.querySelector(".sliderImg5").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div6").childNodes[0].src;
+                document.querySelector(".sliderImg6").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div7").childNodes[0].src;
+                document.querySelector(".sliderImg7").setAttribute("src", silderImage);
+
+                silderImage = document.querySelector("#div8").childNodes[0].src;
+                document.querySelector(".sliderImg8").setAttribute("src", silderImage);
+            }
+
+    </script>
+</body>
+</html>
